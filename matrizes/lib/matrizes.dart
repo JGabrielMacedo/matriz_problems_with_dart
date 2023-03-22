@@ -4,6 +4,7 @@ import 'package:matrizes/src/controllers/matrizes_padrao_controller.dart';
 import 'package:matrizes/src/models/matriz.dart';
 import 'package:matrizes/src/views/formulas_especificas.dart';
 import 'package:matrizes/src/views/matrizes_padrao.dart';
+import 'package:matrizes/src/views/operacao_entre_matrizes.dart';
 
 class Application {
   void main() {
@@ -18,6 +19,9 @@ class Application {
           continue;
         case Route.formulasEspecificas:
           FormulasEspecificas().build();
+          continue;
+        case Route.operacaoEntreMatrizes:
+          OperacaoMatrizesView().build();
           continue;
         case Route.finishProgram:
         default:
@@ -35,8 +39,11 @@ class Application {
     print("Digite ${Route.finishProgram} para encerrar o programa");
     print("Digite ${Route.matrizesEspeciais} para ver as Matrizes Especiais");
     print(
-        "Digite ${Route.formulasEspecificas} para verificar algumas matriculas geradas por fórmula");
-        print("")
+      "Digite ${Route.formulasEspecificas} para verificar algumas matriculas geradas por fórmula",
+    );
+    print(
+      "Digite ${Route.operacaoEntreMatrizes} para realizar operações entre matrizes",
+    );
   }
 }
 
