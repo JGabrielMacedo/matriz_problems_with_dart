@@ -1,9 +1,12 @@
 import 'dart:io';
 
 import 'package:matrizes/src/controllers/matrizes_padrao_controller.dart';
+import 'package:matrizes/src/controllers/multiplicacao_entre_matrizes.dart';
 import 'package:matrizes/src/models/matriz.dart';
 import 'package:matrizes/src/views/formulas_especificas.dart';
+import 'package:matrizes/src/views/laplace_formula_view.dart';
 import 'package:matrizes/src/views/matrizes_padrao.dart';
+import 'package:matrizes/src/views/multiplicacao_entre_matrizes.dart';
 import 'package:matrizes/src/views/operacao_entre_matrizes.dart';
 
 class Application {
@@ -23,6 +26,12 @@ class Application {
         case Route.operacaoEntreMatrizes:
           OperacaoMatrizesView().build();
           continue;
+        case Route.multiplicacaoEntreMatrizes:
+          MultiEntreMatrizes().build();
+          continue;
+        case Route.determinantesLaplace:
+          TeoremaDeLaplaceView().build();
+          continue;
         case Route.finishProgram:
         default:
           print("Programa finalizado");
@@ -39,11 +48,13 @@ class Application {
     print("Digite ${Route.finishProgram} para encerrar o programa");
     print("Digite ${Route.matrizesEspeciais} para ver as Matrizes Especiais");
     print(
-      "Digite ${Route.formulasEspecificas} para verificar algumas matriculas geradas por fórmula",
-    );
+        "Digite ${Route.formulasEspecificas} para verificar algumas matriculas geradas por fórmula");
     print(
-      "Digite ${Route.operacaoEntreMatrizes} para realizar operações entre matrizes",
-    );
+        "Digite ${Route.operacaoEntreMatrizes} para realizar operações entre matrizes");
+    print(
+        "Digite ${Route.multiplicacaoEntreMatrizes} para realizar multiplicação entre matrizes");
+    print(
+        "Digite ${Route.determinantesLaplace} para usar o teorema de laplace");
   }
 }
 
@@ -52,6 +63,8 @@ class Route {
   static const int matrizesEspeciais = 1;
   static const int formulasEspecificas = 2;
   static const int operacaoEntreMatrizes = 3;
+  static const int multiplicacaoEntreMatrizes = 4;
+  static const int determinantesLaplace = 5;
 }
 
 class VisualHelper {
@@ -63,7 +76,7 @@ class VisualHelper {
     print(faixa);
   }
 
-  static void printaMatriz(Matriz<int> matriz) {
+  static void printaMatriz(Matriz<dynamic> matriz) {
     for (var element in matriz) {
       print(element);
     }
