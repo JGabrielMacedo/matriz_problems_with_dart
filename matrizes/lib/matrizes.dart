@@ -8,6 +8,7 @@ import 'package:matrizes/src/views/laplace_formula_view.dart';
 import 'package:matrizes/src/views/matrizes_padrao.dart';
 import 'package:matrizes/src/views/multiplicacao_entre_matrizes.dart';
 import 'package:matrizes/src/views/operacao_entre_matrizes.dart';
+import 'package:matrizes/src/views/sistema_linear_view.dart';
 
 class Application {
   void main() {
@@ -32,10 +33,12 @@ class Application {
         case Route.determinantesLaplace:
           TeoremaDeLaplaceView().build();
           continue;
+        case Route.linearSystem:
+          LinearSystemView().build();
+          continue;
         case Route.finishProgram:
         default:
           print("Programa finalizado");
-
           exit(0);
       }
     }
@@ -55,6 +58,8 @@ class Application {
         "Digite ${Route.multiplicacaoEntreMatrizes} para realizar multiplicação entre matrizes");
     print(
         "Digite ${Route.determinantesLaplace} para usar o teorema de laplace");
+    print(
+        "Digite ${Route.linearSystem} para sistemas lineares de 2 e 3 variáveis");
   }
 }
 
@@ -65,6 +70,7 @@ class Route {
   static const int operacaoEntreMatrizes = 3;
   static const int multiplicacaoEntreMatrizes = 4;
   static const int determinantesLaplace = 5;
+  static const int linearSystem = 6;
 }
 
 class VisualHelper {
